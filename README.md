@@ -10,7 +10,7 @@ using shell script to refresh dns with name.com v4 api on openwrt router
 
   curl -u 'YOUR_USER_NAME:YOUR_API_TOKEN' 'https://api.name.com/v4/domains/example.com/records' -X POST --data '{"host":"www","type":"A","answer":"YOUR_IP","ttl":300}'  
   
-从返回的json中获取id，并记录下来：
+从返回的json中获取id，并记录下来：  
 {  
     "id": 12345,  
     "domainName": "example.org",  
