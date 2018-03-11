@@ -18,5 +18,7 @@ fi
  
 echo "start ddns refresh"
 IP=`ifconfig pppoe-wan|awk -F "[: ]+" '/inet addr/{print $4}'`
-curl -u ''""${USER}""':'""${TOKEN}""'' 'https://api.name.com/v4/domains/'""${DOMAIN}""'/records/'""${ID}""'' -X PUT --data '{"host":"'""${HOST}""'","type":"A","answer":"'""${IP}""'","ttl":300}'
-echo ${IP} > /tmp/ddnsResult
+if [ x"${IP}" != x ]; then
+   curl -u ''""${USER}""':'""${TOKEN}""'' 'https://api.name.com/v4/domains/'""${DOMAIN}""'/records/'""${ID}""'' -X PUT --data '{"host":"'""${HOST}""'","type":"A","answer":"'""${IP}""'","ttl":300}'
+   echo ${IP} > /tmp/ddnsResult
+fi
